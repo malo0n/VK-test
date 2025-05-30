@@ -12,7 +12,7 @@ export const getTableLabel = (key: keyof ICreateUser): string => {
     occupation: "Должность",
     phone: "Телефон",
     company: "Компания",
-    salary: "Зарплата",
+    salary: "Зарплата, ₽",
     department: "Отдел"
   };
   return labels[key];

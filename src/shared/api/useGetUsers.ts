@@ -9,20 +9,21 @@ const getUsers = async (pageParam = 0): Promise<IUser[]> => {
     const response = await client.get<IUser[]>(
       `/employees?_start=${start}&_limit=${PAGE_ITEMS_LIMIT}`
     );
-    if (response.status === 200) {      
-      return response.data
+    if (response.status === 200) {
+      return response.data;
     } else {
-      throw new Error("Failed to get users data");
+      throw new Error(`Failed to get users data: ${response.status} - ${response.statusText}`);
     }
   } catch (error) {
     if (error instanceof Error) {
-      throw new Error(error.message);
+      console.error("Error occurred while fetching users:", error); 
+      throw new Error(`Error: ${error.message}`);
     } else {
-      throw new Error("An unexpected error occurred");
+      console.error("Unexpected error occurred:", error);
+      throw new Error("An unexpected error occurred while fetching users.");
     }
   }
 };
-
 export const useGetUsers = () => {
   return useInfiniteQuery<IUser[]>({
     queryKey: ["users"],

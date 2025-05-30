@@ -1,97 +1,46 @@
-import { submitAddUserForm } from "@/widgets/form/lib/submitAddUserForm";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import { getTableLabel } from "@/widgets/form/lib/getTableLabel";
 import { useAddNewUser } from "@/shared/api";
-import { Input } from "@/shared/components/ui/input";
 import { ICreateUser } from "@/shared/model";
-import { createUserSchema } from "@/shared/model/types";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-} from "@/shared/components/ui/form";
-import { getAutoCompleteValue } from "@/widgets/form/lib/getAutoCompleteValue";
-import { isEnumField } from "@/widgets/form/lib/isEnumField";
+import { Form, FormField } from "@/shared/components/ui/form";
+import { fieldsConfig } from "@/shared/model/fieldsConfig";
+import { AddUserFormProps } from "@/widgets/form/model";
+import { onAddUserSubmit } from "@/widgets/form/lib/onAddUserSubmit";
+import { SelectWrapper } from "@/widgets/form/ui/SelectWrapper";
+import InputWrapper from "@/widgets/form/ui/InputWrapper";
 
-export const AddUserForm = () => {
-  const methods = useForm<ICreateUser>({
-    resolver: zodResolver(createUserSchema),
-  });
-  const fields = createUserSchema.shape;
-  const { handleSubmit } = methods;
-
+export const AddUserForm = (props: AddUserFormProps) => {
+  const { setIsAddUserDialogOpen, methods } = props;
   const { mutateAsync } = useAddNewUser();
+
   return (
     <Form {...methods}>
       <form
-        onSubmit={handleSubmit(
-          (data) => submitAddUserForm(data, mutateAsync),
-          (errors) => console.log(errors)
+        onSubmit={methods.handleSubmit((formData) =>
+          onAddUserSubmit({ setIsAddUserDialogOpen, mutateAsync, formData })
         )}
-        className="grid grid-cols-2 gap-7 py-4"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-7 py-4"
         id="addUser"
       >
-        {Object.entries(fields).map(([key, value]) => {
+        {fieldsConfig.map(({ key, label, isEnum, enumValues, isOptional }) => {
           return (
             <FormField
               control={methods.control}
               name={key as keyof ICreateUser}
               key={key}
               render={({ field }) =>
-                isEnumField(key as keyof ICreateUser) ? (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a verified email to display" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="m@example.com">
-                          m@example.com
-                        </SelectItem>
-                        <SelectItem value="m@google.com">
-                          m@google.com
-                        </SelectItem>
-                        <SelectItem value="m@support.com">
-                          m@support.com
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <FormDescription>
-                      You can manage email addresses in your{" "}
-                      <Link href="/examples/forms">email settings</Link>.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
+                isEnum ? (
+                  <SelectWrapper
+                    name={key}
+                    label={label}
+                    field={field}
+                    enumValues={enumValues}
+                  />
                 ) : (
-                  <FormItem>
-                    <FormLabel>
-                      {getTableLabel(key as keyof ICreateUser)}
-                      {!value.isOptional() && (
-                        <span className="text-red-500 text-lg leading-0">
-                          *
-                        </span>
-                      )}
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder={value.description}
-                        {...field}
-                        autoComplete={getAutoCompleteValue(
-                          key as keyof ICreateUser
-                        )}
-                      />
-                    </FormControl>
-                  </FormItem>
+                  <InputWrapper
+                    name={key}
+                    label={label}
+                    field={field}
+                    isOptional={isOptional}
+                  />
                 )
               }
             />
