@@ -1,4 +1,4 @@
-import { API_URL } from '@/shared/model';
+import { API_URL } from '@shared/model';
 import axios  from 'axios';
 
 

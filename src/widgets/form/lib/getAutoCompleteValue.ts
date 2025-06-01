@@ -1,4 +1,4 @@
-import { ICreateUser } from "@/shared/model";
+import { ICreateUser } from "@shared/model";
 
 export const getAutoCompleteValue = (key: keyof ICreateUser): string => {
   switch (key) {

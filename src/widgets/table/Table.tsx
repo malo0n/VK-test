@@ -7,9 +7,9 @@ import {
 } from "@tanstack/react-table";
 
 import { useState } from "react";
-import { SelectColumnsDropdown } from "@/widgets/table/ui/SelectColumnsDropdown";
-import { ICreateUser } from "@/shared/model";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/shared/components/ui/table";
+import { SelectColumnsDropdown } from "@widgets/table/ui/SelectColumnsDropdown";
+import { ICreateUser } from "@shared/model";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@shared/components/ui/table";
 import { AddUserDialog } from "@/app/ui/AddUserDialog";
 
 interface DataTableProps<TData extends ICreateUser, TValue> {

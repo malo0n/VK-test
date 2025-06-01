@@ -1,4 +1,4 @@
-import { createUserSchema } from "@/shared/model";
+import { createUserSchema } from "@shared/model";
 import { ZodTypeAny, ZodEnum, ZodUnion } from "zod";
 
 export function isEnumField(fieldName: keyof typeof createUserSchema._type): boolean {

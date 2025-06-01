@@ -1,14 +1,14 @@
-import { FormControl, FormItem, FormLabel } from "@/shared/components/ui/form";
+import { FormControl, FormItem, FormLabel } from "@shared/components/ui/form";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/shared/components/ui/select";
-import { ICreateUser } from "@/shared/model";
-import { getTableLabel } from "@/widgets/form/lib/getTableLabel";
-import { SelectWrapperProps } from "@/widgets/form/model";
+} from "@shared/components/ui/select";
+import { ICreateUser } from "@shared/model";
+import { getTableLabel } from "@widgets/form/lib/getTableLabel";
+import { SelectWrapperProps } from "@widgets/form/model";
 
 export const SelectWrapper = (props: SelectWrapperProps) => {
   const { name, label, field, enumValues } = props;

@@ -1,5 +1,5 @@
-import { client } from "@/shared/api/config";
-import { ICreateUser, IUser } from "@/shared/model";
+import { client } from "@shared/api/config";
+import { ICreateUser, IUser } from "@shared/model";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { toast } from "sonner";

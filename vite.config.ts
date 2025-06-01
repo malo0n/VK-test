@@ -10,13 +10,17 @@ export default defineConfig({
       ignored: ["**/db.json", "**/node_modules/**"],
     },
   },
+    test: {
+    environment: 'jsdom',
+    globals: true,
+  },
   resolve: {
     alias: {
-      "@": "/src",
-      "@api": "/src/api",
-      "@helpers": "/src/helpers",
-      "@model": "/src/model",
       "@components": "/src/components",
+      "@shared": "/src/shared",
+      "@widgets": "/src/widgets",
+      "@app": "/src/app",
+      "@": "/src",
     },
   },
 });

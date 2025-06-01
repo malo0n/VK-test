@@ -1,7 +1,7 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 
-import { cn } from "@/shared/lib/utils"
+import { cn } from "@shared/lib/utils"
 
 function Table({ className, ...props }: React.ComponentProps<"table">) {
   return (

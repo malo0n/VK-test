@@ -1,5 +1,5 @@
-import { createUserSchema, ICreateUser } from "@/shared/model";
-import { getTableLabel } from "@/widgets/form/lib/getTableLabel";
+import { createUserSchema, ICreateUser } from "@shared/model";
+import { getTableLabel } from "@widgets/form/lib/getTableLabel";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 
 const fields = createUserSchema.shape;

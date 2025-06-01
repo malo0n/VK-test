@@ -14,14 +14,14 @@
     "incremental": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"],
-      "@api/*": ["./src/api/*"],
-      "@helpers/*": ["./src/helpers/*"],
-      "@model/*": ["./src/model/*"],
-      "@components/*": ["./src/components/*"]
+      "@components/*": ["./src/components/*"],
+      "@widgets/*": ["./src/widgets/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@app/*": ["./src/app/*"],
+      "@/*": ["./src/*"]
     },
     "outDir": "dist"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "jest.resolver.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "jest.resolver.ts", "**/*.test.ts", "**/*.test.tsx"],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,5 @@
 import { ZodTypeAny, ZodObject, ZodEnum, ZodUnion, ZodRawShape, ZodOptional } from "zod";
-import { createUserSchema } from "@/shared/model/types";
+import { createUserSchema } from "@shared/model/types";
 
 type FieldConfig = {
   key: keyof typeof createUserSchema._type;

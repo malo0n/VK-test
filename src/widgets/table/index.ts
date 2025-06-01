@@ -1,1 +1,1 @@
-export  { DataTable } from "@/widgets/table/Table";
+export  { DataTable } from "@widgets/table/Table";

@@ -1,4 +1,4 @@
-import { Button } from "@/shared/components/ui/button";
+import { Button } from "@shared/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -7,9 +7,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/shared/components/ui/dialog";
-import { createUserSchema, ICreateUser } from "@/shared/model";
-import { AddUserForm } from "@/widgets/form/AddUserForm";
+} from "@shared/components/ui/dialog";
+import { createUserSchema, ICreateUser } from "@shared/model";
+import { AddUserForm } from "@widgets/form/AddUserForm";
 import { Plus } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";

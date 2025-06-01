@@ -1,4 +1,4 @@
-import { DEPARTMENTS, POSITIONS } from "@/shared/model/const";
+import { DEPARTMENTS, POSITIONS } from "@shared/model/const";
 import z from "zod";
 
 export const createUserSchema = z.object({

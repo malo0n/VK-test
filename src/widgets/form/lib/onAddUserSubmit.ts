@@ -1,4 +1,4 @@
-import { onAddUserSubmitProps } from "@/widgets/form/model";
+import { onAddUserSubmitProps } from "@widgets/form/model";
 
 export const onAddUserSubmit = async (props: onAddUserSubmitProps) => {
   const { setIsAddUserDialogOpen, mutateAsync, methods } = props;

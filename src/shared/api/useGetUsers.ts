@@ -1,13 +1,12 @@
-
-import { client } from "@/shared/api/config";
-import { IUser, PAGE_ITEMS_LIMIT, DEFAULT_PAGE } from "@/shared/model";
+import { client } from "@shared/api/config";
+import { IUser, PAGE_ITEMS_LIMIT, DEFAULT_PAGE } from "@shared/model";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 const getUsers = async (pageParam = 0): Promise<IUser[]> => {
   try {
     const start = pageParam * PAGE_ITEMS_LIMIT;
     const response = await client.get<IUser[]>(
-      `/employees?_start=${start}&_limit=${PAGE_ITEMS_LIMIT}`
+      `/employees?_sort=id&_order=desc&_start=${start}&_limit=${PAGE_ITEMS_LIMIT}`
     );
     if (response.status === 200) {
       return response.data;

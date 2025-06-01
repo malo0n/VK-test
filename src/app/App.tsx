@@ -1,7 +1,7 @@
-import { useGetUsers } from "@/shared/api";
-import { ICreateUser } from "@/shared/model";
-import { columns } from "@/widgets/table/model/columns";
-import { DataTable } from "@/widgets/table/Table";
+import { useGetUsers } from "@shared/api";
+import { ICreateUser } from "@shared/model";
+import { columns } from "@widgets/table/model/columns";
+import { DataTable } from "@widgets/table/Table";
 import { useEffect, useMemo } from "react";
 import { useInView } from "react-intersection-observer";
 import { ThreeDots } from "react-loader-spinner";

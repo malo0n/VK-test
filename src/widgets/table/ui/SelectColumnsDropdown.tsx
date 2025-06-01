@@ -1,11 +1,11 @@
-import { Button } from "@/shared/components/ui/button";
+import { Button } from "@shared/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@/shared/components/ui/dropdown-menu";
-import { ICreateUser } from "@/shared/model";
+} from "@shared/components/ui/dropdown-menu";
+import { ICreateUser } from "@shared/model";
 import { Table } from "@tanstack/react-table";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";

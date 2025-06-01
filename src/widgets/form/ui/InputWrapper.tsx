@@ -1,9 +1,9 @@
-import { FormItem, FormLabel, FormControl } from "@/shared/components/ui/form";
-import { Input } from "@/shared/components/ui/input";
-import { ICreateUser } from "@/shared/model";
-import { getAutoCompleteValue } from "@/widgets/form/lib/getAutoCompleteValue";
-import { getTableLabel } from "@/widgets/form/lib/getTableLabel";
-import { InputWrapperProps } from "@/widgets/form/model";
+import { FormItem, FormLabel, FormControl } from "@shared/components/ui/form";
+import { Input } from "@shared/components/ui/input";
+import { ICreateUser } from "@shared/model";
+import { getAutoCompleteValue } from "@widgets/form/lib/getAutoCompleteValue";
+import { getTableLabel } from "@widgets/form/lib/getTableLabel";
+import { InputWrapperProps } from "@widgets/form/model";
 
 const InputWrapper = (props: InputWrapperProps) => {
   const { name, label, field, isOptional } = props;

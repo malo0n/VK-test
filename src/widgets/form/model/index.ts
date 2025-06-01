@@ -1,5 +1,5 @@
-import { Input } from "@/shared/components/ui/input";
-import { ICreateUser } from "@/shared/model";
+import { Input } from "@shared/components/ui/input";
+import { ICreateUser } from "@shared/model";
 import { MutateFunction } from "@tanstack/react-query";
 import { ControllerRenderProps, UseFormReturn } from "react-hook-form";
 
