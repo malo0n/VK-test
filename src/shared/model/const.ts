@@ -3,6 +3,8 @@ export const API_URL = "http://localhost:3000";
 export const PAGE_ITEMS_LIMIT = 25;
 export const DEFAULT_PAGE = 0;
 
+export const INFINITE_LOAD_MARGIN = "400px";
+
 export const POSITIONS = [
   "Фронтенд разработчик",
   "Бэкенд разработчик",

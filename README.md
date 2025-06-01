@@ -33,13 +33,16 @@
 1. Установите зависимости:
 
 ```sh
-npm install
+npm install --legacy-peer-deps 
 ```
+shadcn не до конца переехал на 19 реакт, поэтому --legacy-peer-deps
+
+
 
 2. Запустите мок-API (json-server):
 
 ```sh
-npx json-server --watch db.json --port 3001
+npx json-server --watch db.json --port 3000
 ```
 
 3. Запустите приложение:

@@ -1,5 +1,6 @@
 import { useGetUsers } from "@shared/api";
 import { ICreateUser } from "@shared/model";
+import { INFINITE_LOAD_MARGIN } from "@shared/model/const";
 import { columns } from "@widgets/table/model/columns";
 import { DataTable } from "@widgets/table/Table";
 import { useEffect, useMemo } from "react";
@@ -17,7 +18,7 @@ export default function App() {
   } = useGetUsers();
 
   const { ref, inView } = useInView({
-    rootMargin: "150px",
+    rootMargin: INFINITE_LOAD_MARGIN,
   });
 
   useEffect(() => {

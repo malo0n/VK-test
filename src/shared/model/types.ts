@@ -12,7 +12,7 @@ export const createUserSchema = z.object({
   firstName: z.string({required_error: "Обязательное поле"}).min(1, "Обязательное поле").describe("Иван"),
   lastName: z.string({required_error: "Обязательное поле"}).min(1, "Обязательное поле").describe("Иванов"),
   email: z.string({required_error: "Обязательное поле"}).email("Неверный формат электронной почты").describe("example@mail.ru"),
-  phone: z.string({required_error: "Обязательное поле"}).regex(/^(\+7|8)\d{10}$/, "Неверный формат телефона").describe("8(888)888-88-88"),
+  phone: z.string({required_error: "Обязательное поле"}).regex(/^(\+7|8)\s?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/, "Неверный формат телефона").describe("8(888)888-88-88"),
   company: z.string({required_error: "Обязательное поле"}).min(1, "Обязательное поле").describe("ВКонтакте"),
   age: z.number({required_error: "Обязательное поле", coerce: true},).min(0, "Возраст не может быть отрицательным").optional().describe("32"),
   city: z.string().min(1, "Неверный формат ввода").optional().or(z.literal("")).describe("Москва"),

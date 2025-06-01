@@ -9,5 +9,6 @@ export const columns: ColumnDef<ICreateUser>[] = Object.entries(fields).map(([ke
   columnHelper.accessor(key as keyof ICreateUser, {
     header: getTableLabel(key as keyof ICreateUser),
     cell: (info) => info.getValue(),
+    enableHiding: !(key === 'firstName') && !(key === 'lastName') && !(key === 'email'),
   })
 ) as ColumnDef<ICreateUser>[];
