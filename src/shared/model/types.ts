@@ -1,6 +1,13 @@
 import { DEPARTMENTS, POSITIONS } from "@shared/model/const";
 import z from "zod";
 
+
+//* zod-схема определяет сущность пользователя. Изменяя схему, вы можете легко управлять формой и таблицей
+//* в приложении, так как они используют эту схему для валидации и отображения данных.
+//* При добавлении новых полей в схему, добавьте соответствующее обозначение названия в функциях getTableLabel и getAutoCompleteValue
+
+//* Метод .describe() в данном контексте используется для добавления описания к полям схемы и плейсхолдеров в инпутах.
+
 export const createUserSchema = z.object({
   firstName: z.string({required_error: "Обязательное поле"}).min(1, "Обязательное поле").describe("Иван"),
   lastName: z.string({required_error: "Обязательное поле"}).min(1, "Обязательное поле").describe("Иванов"),

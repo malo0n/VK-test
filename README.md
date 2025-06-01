@@ -1,54 +1,71 @@
-# React + TypeScript + Vite
+# VK Test — Тестовое задание Вконтакте на стажёра фронтенд-разработчика 2025 лето
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
 
-Currently, two official plugins are available:
+В проекте использовал архитектуру fsd, но для небольшого приложения не совсем удобно, поэтому местами могут быть несостыковки в логике архитектуры
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Для работы с данными выбрал серверный стейт-менеджер Tanstack-query. Легко интегрируется, автоматически поддерживается кэширование, инвалидация кэша, бесконечная подгрузка данных. Нет бойлерплейта, как в Redux, что подходит для небольшого проекта
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Основные возможности
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Просмотр списка сотрудников с пагинацией (бесконечная прокрутка)
+- Добавление нового пользователя через модальное окно
+- Валидация форм с помощью Zod и react-hook-form
+- Использование TanStack Query для работы с API и кеширования
+- Мок-API через json-server (локально)
+- Современный UI через библиотеку shadcn/ui 
+- Покрытие основных функций юнит-тестами (Vitest, Testing Library)
+
+
+## Структура проекта
+
+- `src/app/` — точка входа, основные компоненты приложения
+- `src/shared/` — общие компоненты, хуки, модели, утилиты
+- `src/widgets/` — виджеты (формы, таблицы и др.)
+- `src/shared/api/` — работа с API (хуки, клиенты)
+- `src/shared/components/ui/` — переиспользуемые UI-компоненты
+- `src/shared/model/` — типы, схемы, константы
+- `src/widgets/form/lib/` — вспомогательные функции и тесты для форм
+
+## Быстрый старт
+
+1. Установите зависимости:
+
+```sh
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Запустите мок-API (json-server):
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```sh
+npx json-server --watch db.json --port 3001
 ```
+
+3. Запустите приложение:
+
+```sh
+npm run dev
+```
+
+4. Откройте [http://localhost:5173](http://localhost:5173) в браузере.
+
+## Тестирование
+
+Для запуска тестов:
+
+```sh
+npm run test
+```
+
+## Основные технологии
+
+- React 19
+- TypeScript
+- Vite
+- TanStack Query
+- react-hook-form + Zod
+- Shadcn/ui
+- TailwindCSS
+- Vitest + Testing Library
+- json-server (мок-API)
